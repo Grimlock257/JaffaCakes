@@ -1,5 +1,14 @@
 package Grimlock257.JaffaCakes.Mod.Lib;
 
+/**
+ * Jaffa Cakes Mod
+ * 
+ * Reference
+ * 
+ * @author Grimlock257
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ * 
+ */
 public class Reference {
     // Debug mode - Used when making/editing the mod, set to false before compiling!
     public static boolean debug = true;

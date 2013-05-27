@@ -5,6 +5,15 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
 
+/**
+ * Jaffa Cakes Mod
+ * 
+ * ModRecipes
+ * 
+ * @author Grimlock257
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ * 
+ */
 public class ModRecipes {
     public static void init() {
         // Add Structured Recipes

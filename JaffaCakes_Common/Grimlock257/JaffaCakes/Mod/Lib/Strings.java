@@ -1,5 +1,14 @@
 package Grimlock257.JaffaCakes.Mod.Lib;
 
+/**
+ * Jaffa Cakes Mod
+ * 
+ * Strings
+ * 
+ * @author Grimlock257
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ * 
+ */
 public class Strings {
     // From what I understand, The Language XML file will read this and using the entry thingy which will
     // match the "orange" for example will then replace these with the what ever the entry was?

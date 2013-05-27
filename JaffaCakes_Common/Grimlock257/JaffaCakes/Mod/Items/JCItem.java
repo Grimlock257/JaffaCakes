@@ -5,6 +5,15 @@ import Grimlock257.JaffaCakes.Mod.JaffaCakes;
 import Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy;
 import Grimlock257.JaffaCakes.Mod.Lib.Reference;
 
+/**
+ * Jaffa Cakes Mod
+ * 
+ * JCItem
+ * 
+ * @author Grimlock257
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ * 
+ */
 public class JCItem extends Item {
 
     public JCItem(int id) {

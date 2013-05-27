@@ -23,6 +23,15 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
+/**
+ * Jaffa Cakes Mod
+ * 
+ * JaffaCakes
+ * 
+ * @author Grimlock257
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ * 
+ */
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class JaffaCakes {

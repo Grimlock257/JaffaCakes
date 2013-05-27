@@ -1,5 +1,14 @@
 package Grimlock257.JaffaCakes.Mod.Lib;
 
+/**
+ * Jaffa Cakes Mod
+ * 
+ * ItemIDs
+ * 
+ * @author Grimlock257
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ * 
+ */
 public class ItemIDs {
     public static int STONE_BOWL = 5000;
     public static int ORANGE = 5001;

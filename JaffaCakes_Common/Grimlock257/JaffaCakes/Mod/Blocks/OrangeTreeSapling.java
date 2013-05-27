@@ -5,8 +5,16 @@ import net.minecraft.block.BlockFlower;
 import Grimlock257.JaffaCakes.Mod.JaffaCakes;
 import Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy;
 
+/**
+ * Jaffa Cakes Mod
+ * 
+ * OrangeTreeSapling
+ * 
+ * @author Grimlock257
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ * 
+ */
 public class OrangeTreeSapling extends BlockFlower {
-
     public OrangeTreeSapling(int par1, int par2) {
         super(par1, par2);
         this.setHardness(0.0F);

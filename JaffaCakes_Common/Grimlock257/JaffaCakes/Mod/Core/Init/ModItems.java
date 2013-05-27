@@ -6,6 +6,15 @@ import Grimlock257.JaffaCakes.Mod.Items.JCItemFood;
 import Grimlock257.JaffaCakes.Mod.Lib.ItemIDs;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
+/**
+ * Jaffa Cakes Mod
+ * 
+ * ModItems
+ * 
+ * @author Grimlock257
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ * 
+ */
 public class ModItems {
     // Add Tools
     public static Item itemStoneBowl;

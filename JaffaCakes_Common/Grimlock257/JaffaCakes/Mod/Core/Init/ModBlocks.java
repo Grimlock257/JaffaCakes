@@ -10,6 +10,15 @@ import Grimlock257.JaffaCakes.Mod.Lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
+/**
+ * Jaffa Cakes Mod
+ * 
+ * ModBlocks
+ * 
+ * @author Grimlock257
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ * 
+ */
 public class ModBlocks {
     // Blocks
     public static Block blockOrangeTreeSapling;

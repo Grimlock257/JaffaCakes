@@ -13,8 +13,16 @@ import Grimlock257.JaffaCakes.Mod.JaffaCakes;
 import Grimlock257.JaffaCakes.Mod.Core.Init.ModBlocks;
 import Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy;
 
+/**
+ * Jaffa Cakes Mod
+ * 
+ * OrangeTreeLeaves
+ * 
+ * @author Grimlock257
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ * 
+ */
 public class OrangeTreeLeaves extends BlockLeavesBase implements IShearable {
-
     public int baseIndexInPNG;
 
     public OrangeTreeLeaves(int par1, int par2) {
