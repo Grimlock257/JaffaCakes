@@ -14,7 +14,6 @@ import Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy;
  * 
  */
 public class JCItemFood extends ItemFood {
-
     public JCItemFood(int id, int hunger, float saturation, boolean wolf) {
         super(id, hunger, saturation, wolf);
         this.setCreativeTab(JaffaCakes.tabJaffaCakes);

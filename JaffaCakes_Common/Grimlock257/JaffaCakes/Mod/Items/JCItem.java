@@ -15,7 +15,6 @@ import Grimlock257.JaffaCakes.Mod.Lib.Reference;
  * 
  */
 public class JCItem extends Item {
-
     public JCItem(int id) {
         super(id - Reference.SHIFTED_ID_RANGE_CORRECTION);
         // Set Item Details
@@ -34,5 +33,4 @@ public class JCItem extends Item {
     public String getTextureFile() {
         return CommonProxy.items;
     }
-
 }
