@@ -28,6 +28,7 @@ public class Strings {
     public static final String ORANGE_TREE_LOG_NAME = "orangeTreeLog";
     public static final String ORANGE_TREE_WOOD_NAME = "orangeTreeWood";
     public static final String ORANGE_TREE_LEAVES_NAME = "orangeTreeLeaves";
+    public static final String ORANGE_TREE_ORANGE_NAME = "orangeTreeOrange";
 
     // Item Name Constants
     public static final String ORANGE_NAME = "orange";
