@@ -27,7 +27,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class OrangeTreeSapling extends BlockFlower {
     public OrangeTreeSapling(int par1, int par2) {
         super(par1, par2);
-        this.setTickRandomly(false);
+        // this.setTickRandomly(false);
         this.setHardness(0.0F);
         this.setStepSound(Block.soundGrassFootstep);
         this.setBlockName("block_Orange_Tree_Sapling");
@@ -43,7 +43,7 @@ public class OrangeTreeSapling extends BlockFlower {
     public void updateTick(World world, int i, int j, int k, Random random) {
         super.updateTick(world, i, j, k, random);
 
-        if (world.getBlockLightValue(i, j + 1, k) >= 9 && random.nextInt(30) == 0) {
+        if (world.getBlockLightValue(i, j + 1, k) >= 9 && random.nextInt(7) == 0) {
             int l = world.getBlockMetadata(i, j, k);
 
             if (random.nextInt(3) == 0) {
