@@ -4,11 +4,14 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
+import net.minecraftforge.common.MinecraftForge;
+import Grimlock257.JaffaCakes.Mod.Core.OrangeTreeBonemealEvent;
 import Grimlock257.JaffaCakes.Mod.Core.Init.ModBlocks;
 import Grimlock257.JaffaCakes.Mod.Core.Init.ModItems;
 import Grimlock257.JaffaCakes.Mod.Core.Init.ModRecipes;
 import Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy;
 import Grimlock257.JaffaCakes.Mod.CreativeTab.CreativeTabJaffaCakes;
+import Grimlock257.JaffaCakes.Mod.Generation.Generators.OrangeTreeGenerator;
 import Grimlock257.JaffaCakes.Mod.Lib.Reference;
 import Grimlock257.JaffaCakes.Mod.Lib.Strings;
 import cpw.mods.fml.common.Mod;
@@ -21,6 +24,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 /**
@@ -42,7 +46,7 @@ public class JaffaCakes {
         }
     }
 
-    /** Print a raw string ( Not used in debug mode, used on start up for the disabled items message ) */
+    /** Print a raw string ( Not used in debug mode, used to print messages to the console ) */
     public static void printMessage(String message) {
         System.out.println("[JaffaCakes] " + message);
     }
@@ -58,7 +62,7 @@ public class JaffaCakes {
 
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
-        printMessage("Pre Init Event");
+        printMessage("Pre Initialization Event");
 
         if (Reference.debug) {
             JaffaCakes.debug("Debugger mode has been enabled for " + Reference.AUTHOR + "'s " + Reference.NAME + " Mod! - " + Reference.AUTHOR + " - If this is a release version, You cannot disable the Debug option - Sorry!");
@@ -71,6 +75,9 @@ public class JaffaCakes {
         JaffaCakes.printMessage("Version: " + Reference.VERSION);
         JaffaCakes.printMessage("Channels: " + Reference.CHANNELS);
         JaffaCakes.printMessage("Base Texture Directory: " + Reference.BASE_TEXTURE_LOCATION);
+
+        // Register Bonemeal Event
+        MinecraftForge.EVENT_BUS.register(new OrangeTreeBonemealEvent());
 
         // Register Renders
         JaffaCakes.proxy.registerRenderers();
@@ -90,19 +97,19 @@ public class JaffaCakes {
 
     @Init
     public void init(FMLInitializationEvent event) {
-        printMessage("Init Event");
+        printMessage("Initialization Event");
 
         // Dungeon
         ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.itemJaffaCake), 1, 3, 115));
 
-        // Not much to do here at this time!
+        // Generate Tree's
+        GameRegistry.registerWorldGenerator(new OrangeTreeGenerator());
     }
 
     @PostInit
     public void postInit(FMLPostInitializationEvent event) {
-        printMessage("Post Init Event");
+        printMessage("Post Initialization Event");
         JaffaCakes.printMessage(Reference.NAME + " by " + Reference.AUTHOR + " seems to have loaded correctly, using ModID " + Reference.MODID + ". Version " + Reference.VERSION + ". Using Channels " + Reference.CHANNELS + ".");
         JaffaCakes.printMessage("If you find any glitchs, errors or spelling mistakes, AI problems, Please notify " + Reference.AUTHOR + " at either Minecraft Forums or at the website; " + Reference.WEBSITE + ". You may also be able to find me on " + Reference.WEBCHAT + " on my channel " + Reference.IRC + ".");
-
     }
 }
