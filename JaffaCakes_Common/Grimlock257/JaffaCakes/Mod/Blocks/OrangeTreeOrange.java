@@ -144,13 +144,13 @@ public class OrangeTreeOrange extends Block {
         }
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    @SideOnly(Side.CLIENT)
-    public void getSubBlocks(int par1, CreativeTabs tab, List subItems) {
-        for (int ix = 0; ix < 3; ix++) {
-            subItems.add(new ItemStack(this, 1, ix));
-        }
-    }
+    // @SuppressWarnings({ "rawtypes", "unchecked" })
+    // @SideOnly(Side.CLIENT)
+    // public void getSubBlocks(int par1, CreativeTabs tab, List subItems) {
+    //     for (int ix = 0; ix < 3; ix++) {
+    //         subItems.add(new ItemStack(this, 1, ix));
+    //     }
+    // }
 
     // Minecraft Default
     // @SuppressWarnings({ "unchecked", "rawtypes" })
