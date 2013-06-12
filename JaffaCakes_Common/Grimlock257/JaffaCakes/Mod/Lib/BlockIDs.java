@@ -14,4 +14,6 @@ public class BlockIDs {
     public static int ORANGE_TREE_LOG = 2501;
     public static int ORANGE_TREE_WOOD = 2502;
     public static int ORANGE_TREE_LEAVES = 2503;
+
+    public static int ORANGE_TREE_ORANGE = 2504;
 }
