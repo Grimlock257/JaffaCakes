@@ -18,7 +18,7 @@ public class Reference {
     public static final String WEBSITE = "http://www.minecraftforum.net/user/1505421-grimlock257/";
     public static final String MODID = "GrimlocksJaffaCakes";
     public static final String NAME = "Jaffa Cakes";
-    public static final String VERSION = "0.0.1 Alpha";
+    public static final String VERSION = "1.0 Beta";
     public static final String CHANNELS = MODID;
 
     // Other
