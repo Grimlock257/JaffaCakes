@@ -2,7 +2,11 @@ package Grimlock257.JaffaCakes.Mod.Items;
 
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy;
+import net.minecraft.util.Icon;
+import Grimlock257.JaffaCakes.Mod.Core.Init.ModBlocks;
+import Grimlock257.JaffaCakes.Mod.Lib.Strings;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Jaffa Cakes Mod
@@ -14,21 +18,36 @@ import Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy;
  * 
  */
 public class JCItemOrange extends ItemBlock {
-    private final static String[] subNames = { "veryUnripeOrange", "unripeOrange", "ripeOrange" };
+    // private final static String[] subNames = { "veryUnripeOrange", "unripeOrange", "ripeOrange" };
 
     public JCItemOrange(int id) {
         super(id);
-        setHasSubtypes(true);
-        setItemName("item_Orange_Tree_Orange");
-        this.setIconIndex(16);
+        this.setHasSubtypes(true);
+        this.setUnlocalizedName(Strings.ORANGE_TREE_ORANGE_NAME);
+    }
+
+    @SideOnly(Side.CLIENT)
+    /** Gets an icon index based on an item's damage value */
+    public Icon getIconFromDamage(int damageValue) {
+        return ModBlocks.blockOrangeTreeOrange.getIcon(2, damageValue);
+    }
+
+    public int getMetadata(int par1) {
+        return par1;
     }
 
     @Override
-    public String getItemNameIS(ItemStack itemstack) {
-        return getItemName() + "." + subNames[itemstack.getItemDamage()];
-    }
-
-    public String getTextureFile(ItemStack item) {
-        return CommonProxy.items;
+    public String getUnlocalizedName(ItemStack itemStack) {
+        int metadata = itemStack.getItemDamage();
+        switch (metadata) {
+            case 0:
+                return "orangeTreeOrange_0";
+            case 1:
+                return "orangeTreeOrange_1";
+            case 2:
+                return "orangeTreeOrange_2";
+            default:
+                return null;
+        }
     }
 }

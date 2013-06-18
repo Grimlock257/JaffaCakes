@@ -1,8 +1,11 @@
 package Grimlock257.JaffaCakes.Mod.Items;
 
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemFood;
 import Grimlock257.JaffaCakes.Mod.JaffaCakes;
-import Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy;
+import Grimlock257.JaffaCakes.Mod.Lib.Reference;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Jaffa Cakes Mod
@@ -14,13 +17,15 @@ import Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy;
  * 
  */
 public class JCItemFood extends ItemFood {
-    public JCItemFood(int id, int hunger, float saturation, boolean wolf) {
+    public JCItemFood(int id, int hunger, float saturation, boolean wolf, String itemName) {
         super(id, hunger, saturation, wolf);
+        this.setUnlocalizedName(itemName);
         this.setCreativeTab(JaffaCakes.tabJaffaCakes);
     }
 
     @Override
-    public String getTextureFile() {
-        return CommonProxy.items;
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister iconRegister) {
+        itemIcon = iconRegister.registerIcon(Reference.MODID + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
     }
 }
