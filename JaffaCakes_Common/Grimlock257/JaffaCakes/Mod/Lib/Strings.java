@@ -31,6 +31,7 @@ public class Strings {
     public static final String ORANGE_TREE_ORANGE_NAME = "orangeTreeOrange";
 
     // Item Name Constants
+    public static final String STONE_BOWL_NAME = "stoneBowl";
     public static final String ORANGE_NAME = "orange";
     public static final String JAFFA_DOUGH_NAME = "jaffaDough";
     public static final String JAFFA_BASE_NAME = "jaffaBase";
