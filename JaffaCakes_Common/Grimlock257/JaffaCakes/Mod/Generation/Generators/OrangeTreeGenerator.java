@@ -26,9 +26,6 @@ public class OrangeTreeGenerator implements IWorldGenerator {
 
     /** Generates ores in the normal minecraft world */
     public void generateSurface(World world, Random rand, int chunkX, int chunkZ) {
-        // Code for 1.5.2 Version
-        // BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(chunkX, chunkZ);
-        // if (BiomeDictionary.isBiomeOfType(biome, Type.SWAMP) || BiomeDictionary.isBiomeOfType(biome, Type.JUNGLE) || BiomeDictionary.isBiomeOfType(biome, Type.WATER) || BiomeDictionary.isBiomeOfType(biome, Type.DESERT)) {
         BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(chunkX + 16, chunkZ + 16);
         if (biome == BiomeGenBase.swampland || biome == BiomeGenBase.jungle || biome == BiomeGenBase.river || biome == BiomeGenBase.desert) {
             for (int k = 0; k < Generator.ORANGE_TREE_RARITY; k++) {
