@@ -6,6 +6,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
@@ -13,7 +14,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import Grimlock257.JaffaCakes.Mod.JaffaCakes;
 import Grimlock257.JaffaCakes.Mod.Core.Init.ModBlocks;
-import Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy;
+import Grimlock257.JaffaCakes.Mod.Lib.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -27,22 +28,22 @@ import cpw.mods.fml.relauncher.SideOnly;
  * 
  */
 public class OrangeTreeLeaves extends BlockLeavesBase implements IShearable {
-    public int baseIndexInPNG;
     int[] adjacentTreeBlocks;
 
-    public OrangeTreeLeaves(int par1, int par2) {
-        super(par1, par2, Material.leaves, false);
+    public OrangeTreeLeaves(int id, String blockName) {
+        super(id, Material.leaves, false);
         this.setHardness(0.2F);
         this.setLightOpacity(1);
         this.setStepSound(Block.soundGrassFootstep);
-        this.setBlockName("block_Orange_Tree_Leaves");
+        this.setUnlocalizedName(blockName);
         this.setTickRandomly(true);
         this.setCreativeTab(JaffaCakes.tabJaffaCakes);
-        this.baseIndexInPNG = par2;
     }
 
-    public String getTextureFile() {
-        return CommonProxy.items;
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister iconRegister) {
+        blockIcon = iconRegister.registerIcon(Reference.MODID + ":" + this.getUnlocalizedName2());
     }
 
     public int idDropped(int par1, Random rand, int par3) {
@@ -229,13 +230,6 @@ public class OrangeTreeLeaves extends BlockLeavesBase implements IShearable {
     @Override
     public boolean isOpaqueCube() {
         return !this.graphicsLevel;
-    }
-
-    @SideOnly(Side.CLIENT)
-    /** Pass true to draw this block using fancy graphics, or false for fast graphics. */
-    public void setGraphicsLevel(boolean par1) {
-        this.graphicsLevel = par1;
-        this.blockIndexInTexture = this.baseIndexInPNG - 1;// (par1 ? 0 : 1);
     }
 
     @Override

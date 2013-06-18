@@ -4,10 +4,13 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
 import Grimlock257.JaffaCakes.Mod.JaffaCakes;
-import Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy;
+import Grimlock257.JaffaCakes.Mod.Lib.Reference;
+import Grimlock257.JaffaCakes.Mod.Lib.Strings;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -21,19 +24,22 @@ import cpw.mods.fml.relauncher.SideOnly;
  * 
  */
 public class OrangeTreeWood extends Block {
-    int texture;
-
-    public OrangeTreeWood(int id, int texture2, Material material) {
-        super(id, texture2, material);
+    public OrangeTreeWood(int id, Material material, String blockName) {
+        super(id, material);
         this.setHardness(2.0F);
-        this.setBlockName("block_Orange_Tree_Wood");
+        this.setUnlocalizedName(blockName);
         this.setCreativeTab(JaffaCakes.tabJaffaCakes);
-        texture = texture2;
     }
 
-    /** From the specified side and block metadata retrieves the blocks texture. Args: side, metadata */
-    public int getBlockTextureFromSideAndMetadata(int par1, int par2) {
-        return texture;
+    @Override
+    public Icon getIcon(int side, int metadata) {
+        return blockIcon;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister iconRegister) {
+        this.blockIcon = iconRegister.registerIcon(Reference.MODID + ":" + Strings.ORANGE_TREE_WOOD_NAME);
     }
 
     /** Determines the damage on the item the block drops. Used in cloth and wood. */
@@ -46,9 +52,5 @@ public class OrangeTreeWood extends Block {
     /** Returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks) */
     public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List) {
         par3List.add(new ItemStack(par1, 1, 0));
-    }
-
-    public String getTextureFile() {
-        return CommonProxy.items;
     }
 }

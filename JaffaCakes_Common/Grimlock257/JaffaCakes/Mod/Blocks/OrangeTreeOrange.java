@@ -1,18 +1,18 @@
 package Grimlock257.JaffaCakes.Mod.Blocks;
 
-import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemStack;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import Grimlock257.JaffaCakes.Mod.JaffaCakes;
 import Grimlock257.JaffaCakes.Mod.Core.Init.ModItems;
-import Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy;
+import Grimlock257.JaffaCakes.Mod.Lib.Reference;
+import Grimlock257.JaffaCakes.Mod.Lib.Strings;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -27,16 +27,17 @@ import cpw.mods.fml.relauncher.SideOnly;
  */
 public class OrangeTreeOrange extends Block {
     private static int blockid;
+    public Icon[] icons;
 
     @SuppressWarnings("static-access")
-    public OrangeTreeOrange(int i) {
-        super(i, Material.circuits);
+    public OrangeTreeOrange(int id, String blockName) {
+        super(id, Material.circuits);
         this.setTickRandomly(true);
         this.setHardness(0.0F);
         this.setCreativeTab(JaffaCakes.tabJaffaCakes);
         this.setStepSound(Block.soundGrassFootstep);
-        this.setBlockName("block_Orange_Tree_Orange");
-        this.blockid = i;
+        this.setUnlocalizedName(blockName);
+        this.blockid = id;
 
     }
 
@@ -44,14 +45,20 @@ public class OrangeTreeOrange extends Block {
         return null;
     }
 
-    public String getTextureFile() {
-        return CommonProxy.items;
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister iconRegister) {
+        this.icons = new Icon[3];
+
+        for (int metadata = 0; metadata < this.icons.length; ++metadata) {
+            this.icons[metadata] = iconRegister.registerIcon(Reference.MODID + ":" + Strings.ORANGE_TREE_ORANGE_NAME + "_" + metadata);
+        }
     }
 
+    @SideOnly(Side.CLIENT)
     /** From the specified side and block metadata retrieves the blocks texture. Args: side, metadata */
-    @Override
-    public int getBlockTextureFromSideAndMetadata(int side, int metadata) {
-        return 16 + metadata;
+    public Icon getIcon(int side, int metadata) {
+        return this.icons[metadata % this.icons.length];
     }
 
     @Override
@@ -67,7 +74,7 @@ public class OrangeTreeOrange extends Block {
         if (var6 < 2) {
             if (par5Random.nextInt(30) == 0) {
                 ++var6;
-                par1World.setBlockAndMetadata(par2, par3, par4, blockid, var6);
+                par1World.setBlock(par2, par3, par4, blockid, var6, 2);
             }
         }
     }
@@ -80,7 +87,7 @@ public class OrangeTreeOrange extends Block {
             l = 2;
         }
 
-        par1World.setBlockMetadataWithNotify(par2, par3, par4, l);
+        par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
 
     }
 
@@ -140,16 +147,16 @@ public class OrangeTreeOrange extends Block {
 
     public void onBlockDestroyedByPlayer(World world, int par2, int par3, int par4, int par5) {
         if (par5 == 2) {
-            world.setBlockAndMetadata(par2, par3, par4, blockid, 0);
+            world.setBlock(par2, par3, par4, blockid, 0, 2);
         }
     }
 
     // @SuppressWarnings({ "rawtypes", "unchecked" })
     // @SideOnly(Side.CLIENT)
     // public void getSubBlocks(int par1, CreativeTabs tab, List subItems) {
-    //     for (int ix = 0; ix < 3; ix++) {
-    //         subItems.add(new ItemStack(this, 1, ix));
-    //     }
+    // for (int ix = 0; ix < 3; ix++) {
+    // subItems.add(new ItemStack(this, 1, ix));
+    // }
     // }
 
     // Minecraft Default

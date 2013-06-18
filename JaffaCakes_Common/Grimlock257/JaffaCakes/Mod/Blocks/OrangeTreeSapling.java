@@ -5,13 +5,16 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import Grimlock257.JaffaCakes.Mod.JaffaCakes;
-import Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy;
 import Grimlock257.JaffaCakes.Mod.Generation.Worldgen.WorldGenOrangeTree;
+import Grimlock257.JaffaCakes.Mod.Lib.Reference;
+import Grimlock257.JaffaCakes.Mod.Lib.Strings;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -25,12 +28,12 @@ import cpw.mods.fml.relauncher.SideOnly;
  * 
  */
 public class OrangeTreeSapling extends BlockFlower {
-    public OrangeTreeSapling(int par1, int par2) {
-        super(par1, par2);
+    public OrangeTreeSapling(int id, String blockName) {
+        super(id);
         // this.setTickRandomly(false);
         this.setHardness(0.0F);
         this.setStepSound(Block.soundGrassFootstep);
-        this.setBlockName("block_Orange_Tree_Sapling");
+        this.setUnlocalizedName(blockName);
         this.setCreativeTab(JaffaCakes.tabJaffaCakes);
         this.setBlockBounds(0.1F, 0F, 0.1F, 0.9F, 0.4F * 2.0F, 0.9F);
     }
@@ -69,7 +72,16 @@ public class OrangeTreeSapling extends BlockFlower {
         par3List.add(new ItemStack(par1, 1, 0));
     }
 
-    public String getTextureFile() {
-        return CommonProxy.items;
+    @Override
+    @SideOnly(Side.CLIENT)
+    /** From the specified side and block metadata retrieves the blocks texture. Args: side, metadata */
+    public Icon getIcon(int side, int metadata) {
+        return this.blockIcon;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister iconRegister) {
+        this.blockIcon = iconRegister.registerIcon(Reference.MODID + ":" + Strings.ORANGE_TREE_SAPLING_NAME);
     }
 }

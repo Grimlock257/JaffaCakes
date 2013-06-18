@@ -2,8 +2,13 @@ package Grimlock257.JaffaCakes.Mod.Blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.util.Icon;
 import Grimlock257.JaffaCakes.Mod.JaffaCakes;
-import Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy;
+import Grimlock257.JaffaCakes.Mod.Lib.Reference;
+import Grimlock257.JaffaCakes.Mod.Lib.Strings;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Jaffa Cakes Mod
@@ -15,22 +20,31 @@ import Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy;
  * 
  */
 public class OrangeTreeLog extends Block {
-    public OrangeTreeLog(int par1, int par2, Material par3Material) {
-        super(par1, par2, par3Material);
+    public OrangeTreeLog(int id, Material material, String blockName) {
+        super(id, material);
         this.setHardness(2.0F);
-        this.setBlockName("block_Orange_Tree_Log");
+        this.setUnlocalizedName(blockName);
         this.setCreativeTab(JaffaCakes.tabJaffaCakes);
     }
 
-    public String getTextureFile() {
-        return CommonProxy.items;
+    @SideOnly(Side.CLIENT)
+    private Icon orangeTreeLogVertical;
+
+    @SideOnly(Side.CLIENT)
+    public Icon getIcon(int par1, int par2) {
+        Icon textureIcon;
+        if (par1 == 0 || par1 == 1) {
+            textureIcon = orangeTreeLogVertical;
+        } else {
+            textureIcon = blockIcon;
+        }
+        return textureIcon;
     }
 
-    public int getBlockTextureFromSide(int side) {
-        if (side == 0 || side == 1) {
-            return this.blockIndexInTexture + 1;
-        } else {
-            return this.blockIndexInTexture;
-        }
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister iconRegister) {
+        this.blockIcon = iconRegister.registerIcon(Reference.MODID + ":" + Strings.ORANGE_TREE_LOG_NAME);
+        this.orangeTreeLogVertical = iconRegister.registerIcon(Reference.MODID + ":" + Strings.ORANGE_TREE_LOG_NAME + "_vert");
     }
 }
