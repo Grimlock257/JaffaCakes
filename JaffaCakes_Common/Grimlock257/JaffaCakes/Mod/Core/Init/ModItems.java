@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import Grimlock257.JaffaCakes.Mod.Items.JCItem;
 import Grimlock257.JaffaCakes.Mod.Items.JCItemFood;
 import Grimlock257.JaffaCakes.Mod.Lib.ItemIDs;
+import Grimlock257.JaffaCakes.Mod.Lib.Strings;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 /**
@@ -36,18 +37,18 @@ public class ModItems {
 
     public static void init() {
         // Tools
-        itemStoneBowl = new JCItem(ItemIDs.STONE_BOWL).setMaxStackSize(16).setIconIndex(0).setItemName("item_StoneBowl");
+        itemStoneBowl = new JCItem(ItemIDs.STONE_BOWL, Strings.STONE_BOWL_NAME).setMaxStackSize(16);
 
         // Foods
-        itemOrange = new JCItemFood(ItemIDs.ORANGE, 4, 3F, false).setIconIndex(1).setItemName("item_Orange");
-        itemJaffaDough = new JCItem(ItemIDs.JAFFA_DOUGH).setIconIndex(2).setItemName("item_Jaffa_Dough");
-        itemJaffaBase = new JCItemFood(ItemIDs.JAFFA_BASE, 2, 1F, false).setIconIndex(3).setItemName("item_Jaffa_Base");
-        itemRawJamMixture = new JCItem(ItemIDs.RAW_JAM_MIXTURE).setIconIndex(4).setItemName("item_Raw_Jam_Mixture");
-        itemJamMixture = new JCItem(ItemIDs.JAM_MIXTURE).setIconIndex(5).setItemName("item_Jam_Mixture");
-        itemJamDisk = new JCItemFood(ItemIDs.JAM_DISK, 2, 1F, false).setIconIndex(6).setItemName("item_Jam_Disk");
-        itemChocolateBar = new JCItemFood(ItemIDs.CHOCOLATE_BAR, 4, 2F, false).setIconIndex(7).setItemName("item_Chocolate_Bar");
-        itemChocolateDrop = new JCItem(ItemIDs.CHOCOLATE_DROP).setIconIndex(8).setItemName("item_Chocolate_Drop");
-        itemJaffaCake = new JCItemFood(ItemIDs.JAFFA_CAKE, 6, 8F, false).setIconIndex(9).setItemName("item_Jaffa_Cake");
+        itemOrange = new JCItemFood(ItemIDs.ORANGE, 4, 3F, false, Strings.ORANGE_NAME);
+        itemJaffaDough = new JCItem(ItemIDs.JAFFA_DOUGH, Strings.JAFFA_DOUGH_NAME);
+        itemJaffaBase = new JCItemFood(ItemIDs.JAFFA_BASE, 2, 1F, false, Strings.JAFFA_BASE_NAME);
+        itemRawJamMixture = new JCItem(ItemIDs.RAW_JAM_MIXTURE, Strings.RAW_JAM_MIXTURE_NAME);
+        itemJamMixture = new JCItem(ItemIDs.JAM_MIXTURE, Strings.JAM_MIXTURE_NAME);
+        itemJamDisk = new JCItemFood(ItemIDs.JAM_DISK, 2, 1F, false, Strings.JAM_DISK_NAME);
+        itemChocolateBar = new JCItemFood(ItemIDs.CHOCOLATE_BAR, 4, 2F, false, Strings.CHOCOLATE_BAR_NAME);
+        itemChocolateDrop = new JCItem(ItemIDs.CHOCOLATE_DROP, Strings.CHOCOLATE_DROP_NAME);
+        itemJaffaCake = new JCItemFood(ItemIDs.JAFFA_CAKE, 6, 8F, false, Strings.JAFFACAKES_NAME);
 
         // Orange Sub Items ( Meta Data )
         itemOrange_0 = new ItemStack(ModBlocks.blockOrangeTreeOrange, 16, 0);

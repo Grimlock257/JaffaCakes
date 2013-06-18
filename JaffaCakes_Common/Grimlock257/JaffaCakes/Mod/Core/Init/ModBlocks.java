@@ -27,18 +27,16 @@ public class ModBlocks {
     public static Block blockOrangeTreeSapling;
     public static Block blockOrangeTreeLog;
     public static Block blockOrangeTreeWood;
-    /** ID 12 Is Log bottom and top, ID 11 is Log sides. Same with leaves, 14 is Transparent(Fancy) and 15 is Non-Transparent(Fast) */
     public static Block blockOrangeTreeLeaves;
-    /** blockOrangeTreeOrange is the actual orange block on the tree leaves */
     public static Block blockOrangeTreeOrange;
 
     public static void init() {
         // Add Blocks
-        blockOrangeTreeSapling = new OrangeTreeSapling(BlockIDs.ORANGE_TREE_SAPLING, 10);
-        blockOrangeTreeLog = new OrangeTreeLog(BlockIDs.ORANGE_TREE_LOG, 11, Material.wood);
-        blockOrangeTreeWood = new OrangeTreeWood(BlockIDs.ORANGE_TREE_WOOD, 13, Material.wood);
-        blockOrangeTreeLeaves = new OrangeTreeLeaves(BlockIDs.ORANGE_TREE_LEAVES, 15);
-        blockOrangeTreeOrange = new OrangeTreeOrange(BlockIDs.ORANGE_TREE_ORANGE); // , "orange");
+        blockOrangeTreeSapling = new OrangeTreeSapling(BlockIDs.ORANGE_TREE_SAPLING, Strings.ORANGE_TREE_SAPLING_NAME);
+        blockOrangeTreeLog = new OrangeTreeLog(BlockIDs.ORANGE_TREE_LOG, Material.wood, Strings.ORANGE_TREE_LOG_NAME);
+        blockOrangeTreeWood = new OrangeTreeWood(BlockIDs.ORANGE_TREE_WOOD, Material.wood, Strings.ORANGE_TREE_WOOD_NAME);
+        blockOrangeTreeLeaves = new OrangeTreeLeaves(BlockIDs.ORANGE_TREE_LEAVES, Strings.ORANGE_TREE_LEAVES_NAME);
+        blockOrangeTreeOrange = new OrangeTreeOrange(BlockIDs.ORANGE_TREE_ORANGE, Strings.ORANGE_TREE_ORANGE_NAME);
 
         // Register Blocks
         GameRegistry.registerBlock(blockOrangeTreeSapling, Strings.ORANGE_TREE_SAPLING_NAME);
@@ -50,7 +48,7 @@ public class ModBlocks {
         // Add Block Names
         LanguageRegistry.addName(blockOrangeTreeSapling, "Orange Tree Sapling");
         LanguageRegistry.addName(blockOrangeTreeLog, "Orange Tree Log");
-        LanguageRegistry.addName(blockOrangeTreeWood, "Orange Tree Wood");
+        LanguageRegistry.addName(blockOrangeTreeWood, "Orange Tree Planks");
         LanguageRegistry.addName(blockOrangeTreeLeaves, "Orange Tree Leaves");
     }
 }
