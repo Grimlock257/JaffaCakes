@@ -18,13 +18,13 @@ public class Reference {
     public static final String WEBSITE = "http://www.minecraftforum.net/user/1505421-grimlock257/";
     public static final String MODID = "GrimlocksJaffaCakes";
     public static final String NAME = "Jaffa Cakes";
-    public static final String VERSION = "1.0 Beta";
+    public static final String VERSION = "1.1";
     public static final String CHANNELS = MODID;
+    public static final String CONFIGFOLDER = "GrimlocksMods";
 
     // Other
     public static final String WEBCHAT = "webchat.esper.net";
     public static final String IRC = "#Grimlock257";
-    public static final int SHIFTED_ID_RANGE_CORRECTION = 256;
 
     // Proxy Locations
     public static final String SERVER_PROXY_CLASS = "Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy";
