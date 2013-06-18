@@ -10,5 +10,8 @@ package Grimlock257.JaffaCakes.Mod.Lib;
  * 
  */
 public class Generator {
-    public static int ORANGE_TREE_RARITY = 10;
+    // Default Values
+    public static int ORANGE_TREE_RARITY_DEFAULT = 10;
+    
+    public static int ORANGE_TREE_RARITY;
 }
