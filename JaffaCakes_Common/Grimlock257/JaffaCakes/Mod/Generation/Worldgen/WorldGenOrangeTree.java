@@ -96,11 +96,11 @@ public class WorldGenOrangeTree extends WorldGenerator {
                         // }
                         if (world.getBlockId(currentXPos, currentYPos - 2, currentZPos) == 0 && currentYPos > (y - 3) + treeHeight) {
                             // If the leaves placed are not the lowest possible leaves in the tree, 100% chance to spawn fruit (makes fruit positions look varied)
-                            world.setBlockAndMetadata(currentXPos, currentYPos - 1, currentZPos, ModBlocks.blockOrangeTreeOrange.blockID, fruitType);
+                            world.setBlock(currentXPos, currentYPos - 1, currentZPos, ModBlocks.blockOrangeTreeOrange.blockID, fruitType, 2);
                         } else {
                             // else, 33% chance of spawning fruit
                             if (random.nextInt(4) == 0) {
-                                world.setBlockAndMetadata(currentXPos, currentYPos - 1, currentZPos, ModBlocks.blockOrangeTreeOrange.blockID, fruitType);
+                                world.setBlock(currentXPos, currentYPos - 1, currentZPos, ModBlocks.blockOrangeTreeOrange.blockID, fruitType, 2);
                             }
                         }
                     }
