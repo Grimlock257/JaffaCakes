@@ -1,10 +1,13 @@
 package Grimlock257.JaffaCakes.Mod;
 
+import java.io.File;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.MinecraftForge;
+import Grimlock257.JaffaCakes.Mod.Configuration.ConfigurationHandler;
 import Grimlock257.JaffaCakes.Mod.Core.OrangeTreeBonemealEvent;
 import Grimlock257.JaffaCakes.Mod.Core.Init.ModBlocks;
 import Grimlock257.JaffaCakes.Mod.Core.Init.ModItems;
@@ -12,6 +15,8 @@ import Grimlock257.JaffaCakes.Mod.Core.Init.ModRecipes;
 import Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy;
 import Grimlock257.JaffaCakes.Mod.CreativeTab.CreativeTabJaffaCakes;
 import Grimlock257.JaffaCakes.Mod.Generation.Generators.OrangeTreeGenerator;
+import Grimlock257.JaffaCakes.Mod.Lib.BlockIDs;
+import Grimlock257.JaffaCakes.Mod.Lib.ItemIDs;
 import Grimlock257.JaffaCakes.Mod.Lib.Reference;
 import Grimlock257.JaffaCakes.Mod.Lib.Strings;
 import cpw.mods.fml.common.Mod;
@@ -42,13 +47,13 @@ public class JaffaCakes {
     /** If the JaffaCakes debugger is enabled then a message will be printed to the console */
     public static void debug(String message) {
         if (Reference.debug == true) {
-            System.out.println("[JaffaCakes] Debug: " + message);
+            System.out.println("[" + Reference.NAME + "] DEBUG: " + message);
         }
     }
 
     /** Print a raw string ( Not used in debug mode, used to print messages to the console ) */
     public static void printMessage(String message) {
-        System.out.println("[JaffaCakes] " + message);
+        System.out.println("[" + Reference.NAME + "] " + message);
     }
 
     @Instance(Reference.MODID)
@@ -63,6 +68,9 @@ public class JaffaCakes {
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
         printMessage("Pre Initialization Event");
+
+        // Initialize the configuration
+        ConfigurationHandler.init(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + Reference.CONFIGFOLDER + File.separator + Reference.MODID + ".cfg"));
 
         if (Reference.debug) {
             JaffaCakes.debug("Debugger mode has been enabled for " + Reference.AUTHOR + "'s " + Reference.NAME + " Mod! - " + Reference.AUTHOR + " - If this is a release version, You cannot disable the Debug option - Sorry!");
@@ -109,6 +117,10 @@ public class JaffaCakes {
     @PostInit
     public void postInit(FMLPostInitializationEvent event) {
         printMessage("Post Initialization Event");
+
+        JaffaCakes.printMessage("Block ID's Used: " + BlockIDs.ORANGE_TREE_SAPLING + ", " + BlockIDs.ORANGE_TREE_LOG + ", " + BlockIDs.ORANGE_TREE_WOOD + ", " + BlockIDs.ORANGE_TREE_LEAVES + ", " + BlockIDs.ORANGE_TREE_ORANGE + ".");
+        JaffaCakes.printMessage("Item ID's Used: " + ItemIDs.STONE_BOWL + ", " + ItemIDs.ORANGE + ", " + ItemIDs.JAFFA_DOUGH + ", " + ItemIDs.JAFFA_BASE + ", " + ItemIDs.RAW_JAM_MIXTURE + ", " + ItemIDs.JAM_MIXTURE + ", " + ItemIDs.JAM_DISK + ", " + ItemIDs.CHOCOLATE_BAR + ", " + ItemIDs.CHOCOLATE_DROP + ", " + ItemIDs.JAFFA_CAKE + ".");
+
         JaffaCakes.printMessage(Reference.NAME + " by " + Reference.AUTHOR + " seems to have loaded correctly, using ModID " + Reference.MODID + ". Version " + Reference.VERSION + ". Using Channels " + Reference.CHANNELS + ".");
         JaffaCakes.printMessage("If you find any glitchs, errors or spelling mistakes, AI problems, Please notify " + Reference.AUTHOR + " at either Minecraft Forums or at the website; " + Reference.WEBSITE + ". You may also be able to find me on " + Reference.WEBCHAT + " on my channel " + Reference.IRC + ".");
     }
