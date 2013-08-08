@@ -11,14 +11,14 @@ package Grimlock257.JaffaCakes.Mod.Lib;
  */
 public class Reference {
     // Debug mode - Used when making/editing the mod, set to false before compiling!
-    public static boolean debug = true;
+    public static boolean debug = false;
 
     // Mod Details, Defined here to make it easier when upgrading
     public static final String AUTHOR = "Grimlock257";
     public static final String WEBSITE = "http://www.minecraftforum.net/user/1505421-grimlock257/";
     public static final String MODID = "GrimlocksJaffaCakes";
     public static final String NAME = "Jaffa Cakes";
-    public static final String VERSION = "1.1";
+    public static final String VERSION = "1.2";
     public static final String CHANNELS = MODID;
     public static final String CONFIGFOLDER = "GrimlocksMods";
 
