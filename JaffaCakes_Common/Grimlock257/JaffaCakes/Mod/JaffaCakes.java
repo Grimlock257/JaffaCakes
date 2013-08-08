@@ -16,7 +16,9 @@ import Grimlock257.JaffaCakes.Mod.Core.Network.Proxy.CommonProxy;
 import Grimlock257.JaffaCakes.Mod.CreativeTab.CreativeTabJaffaCakes;
 import Grimlock257.JaffaCakes.Mod.Generation.Generators.OrangeTreeGenerator;
 import Grimlock257.JaffaCakes.Mod.Lib.BlockIDs;
+import Grimlock257.JaffaCakes.Mod.Lib.Generator;
 import Grimlock257.JaffaCakes.Mod.Lib.ItemIDs;
+import Grimlock257.JaffaCakes.Mod.Lib.RecipeAmounts;
 import Grimlock257.JaffaCakes.Mod.Lib.Reference;
 import Grimlock257.JaffaCakes.Mod.Lib.Strings;
 import cpw.mods.fml.common.Mod;
@@ -118,8 +120,15 @@ public class JaffaCakes {
     public void postInit(FMLPostInitializationEvent event) {
         printMessage("Post Initialization Event");
 
-        JaffaCakes.printMessage("Block ID's Used: " + BlockIDs.ORANGE_TREE_SAPLING + ", " + BlockIDs.ORANGE_TREE_LOG + ", " + BlockIDs.ORANGE_TREE_WOOD + ", " + BlockIDs.ORANGE_TREE_LEAVES + ", " + BlockIDs.ORANGE_TREE_ORANGE + ".");
-        JaffaCakes.printMessage("Item ID's Used: " + ItemIDs.STONE_BOWL + ", " + ItemIDs.ORANGE + ", " + ItemIDs.JAFFA_DOUGH + ", " + ItemIDs.JAFFA_BASE + ", " + ItemIDs.RAW_JAM_MIXTURE + ", " + ItemIDs.JAM_MIXTURE + ", " + ItemIDs.JAM_DISK + ", " + ItemIDs.CHOCOLATE_BAR + ", " + ItemIDs.CHOCOLATE_DROP + ", " + ItemIDs.JAFFA_CAKE + ".");
+        JaffaCakes.printMessage("Basic Info:");
+
+        JaffaCakes.printMessage("  Block ID's Used: " + BlockIDs.ORANGE_TREE_SAPLING + ", " + BlockIDs.ORANGE_TREE_LOG + ", " + BlockIDs.ORANGE_TREE_WOOD + ", " + BlockIDs.ORANGE_TREE_LEAVES + ", " + BlockIDs.ORANGE_TREE_ORANGE + ".");
+        JaffaCakes.printMessage("  Item ID's Used: " + ItemIDs.STONE_BOWL + ", " + ItemIDs.ORANGE + ", " + ItemIDs.JAFFA_DOUGH + ", " + ItemIDs.JAFFA_BASE + ", " + ItemIDs.RAW_JAM_MIXTURE + ", " + ItemIDs.JAM_MIXTURE + ", " + ItemIDs.JAM_DISK + ", " + ItemIDs.CHOCOLATE_BAR + ", " + ItemIDs.CHOCOLATE_DROP + ", " + ItemIDs.JAFFA_CAKE + ".");
+
+        JaffaCakes.printMessage("");
+
+        JaffaCakes.printMessage("  Orange Tree Rarity: " + Generator.ORANGE_TREE_RARITY);
+        JaffaCakes.printMessage("  Crafting Result Amounts: " + RecipeAmounts.CHOCOLATE_BAR + ", " + RecipeAmounts.JAFFA_CAKE + ", " + RecipeAmounts.JAFFA_DOUGH + ", " + RecipeAmounts.JAM_DISK + ", " + RecipeAmounts.RAW_JAM_MIXTURE + ", " + RecipeAmounts.STONE_BOWL + ".");
 
         JaffaCakes.printMessage(Reference.NAME + " by " + Reference.AUTHOR + " seems to have loaded correctly, using ModID " + Reference.MODID + ". Version " + Reference.VERSION + ". Using Channels " + Reference.CHANNELS + ".");
         JaffaCakes.printMessage("If you find any glitchs, errors or spelling mistakes, AI problems, Please notify " + Reference.AUTHOR + " at either Minecraft Forums or at the website; " + Reference.WEBSITE + ". You may also be able to find me on " + Reference.WEBCHAT + " on my channel " + Reference.IRC + ".");
