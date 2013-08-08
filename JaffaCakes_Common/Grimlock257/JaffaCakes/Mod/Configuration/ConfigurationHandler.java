@@ -7,6 +7,7 @@ import net.minecraftforge.common.Configuration;
 import Grimlock257.JaffaCakes.Mod.Lib.BlockIDs;
 import Grimlock257.JaffaCakes.Mod.Lib.Generator;
 import Grimlock257.JaffaCakes.Mod.Lib.ItemIDs;
+import Grimlock257.JaffaCakes.Mod.Lib.RecipeAmounts;
 import Grimlock257.JaffaCakes.Mod.Lib.Reference;
 import Grimlock257.JaffaCakes.Mod.Lib.Strings;
 import cpw.mods.fml.common.FMLLog;
@@ -24,6 +25,7 @@ public class ConfigurationHandler {
     public static Configuration configuration;
 
     public static final String CATEGORY_GENERATION = "generation";
+    public static final String CATEGORY_RECIPE_RESULTS = "recipe_results";
 
     public static void init(File configFile) {
         configuration = new Configuration(configFile);
@@ -32,7 +34,15 @@ public class ConfigurationHandler {
             configuration.load();
 
             /* General Config Settings */
-            ConfigurationSettings.ORANGE_TREE_RARITY_CONFIG = configuration.get(CATEGORY_GENERATION, ConfigurationSettings.ORANGE_TREE_RARITY_CONFIGNAME, Generator.ORANGE_TREE_RARITY_DEFAULT).getString();
+            Generator.ORANGE_TREE_RARITY = configuration.get(CATEGORY_GENERATION, ConfigurationSettings.ORANGE_TREE_RARITY_CONFIGNAME, Generator.ORANGE_TREE_RARITY_DEFAULT).getInt();
+
+            /* Recipe Config Amount Settings */
+            RecipeAmounts.STONE_BOWL = configuration.get(CATEGORY_RECIPE_RESULTS, ConfigurationSettings.STONE_BOWL_CONFIGNAME, RecipeAmounts.STONE_BOWL_DEFAULT).getInt();
+            RecipeAmounts.JAFFA_DOUGH = configuration.get(CATEGORY_RECIPE_RESULTS, ConfigurationSettings.JAFFA_DOUGH_CONFIGNAME, RecipeAmounts.STONE_BOWL_DEFAULT).getInt();
+            RecipeAmounts.RAW_JAM_MIXTURE = configuration.get(CATEGORY_RECIPE_RESULTS, ConfigurationSettings.RAW_JAM_MIXTURE_CONFIGNAME, RecipeAmounts.STONE_BOWL_DEFAULT).getInt();
+            RecipeAmounts.JAM_DISK = configuration.get(CATEGORY_RECIPE_RESULTS, ConfigurationSettings.JAM_DISK_CONFIGNAME, RecipeAmounts.STONE_BOWL_DEFAULT).getInt();
+            RecipeAmounts.CHOCOLATE_BAR = configuration.get(CATEGORY_RECIPE_RESULTS, ConfigurationSettings.CHOCOLATE_BAR_CONFIGNAME, RecipeAmounts.STONE_BOWL_DEFAULT).getInt();
+            RecipeAmounts.JAFFA_CAKE = configuration.get(CATEGORY_RECIPE_RESULTS, ConfigurationSettings.JAFFA_CAKE_CONFIGNAME, RecipeAmounts.STONE_BOWL_DEFAULT).getInt();
 
             /* Block Config IDs Settings */
             BlockIDs.ORANGE_TREE_SAPLING = configuration.getBlock(Strings.ORANGE_TREE_SAPLING_NAME, BlockIDs.ORANGE_TREE_SAPLING_DEFAULT).getInt(BlockIDs.ORANGE_TREE_SAPLING_DEFAULT);
