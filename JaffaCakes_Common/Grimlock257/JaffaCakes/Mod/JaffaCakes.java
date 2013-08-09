@@ -22,10 +22,8 @@ import Grimlock257.JaffaCakes.Mod.Lib.RecipeAmounts;
 import Grimlock257.JaffaCakes.Mod.Lib.Reference;
 import Grimlock257.JaffaCakes.Mod.Lib.Strings;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.Mod.PostInit;
-import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -67,7 +65,7 @@ public class JaffaCakes {
     // Add Jaffa Cake Creative Tabs
     public static CreativeTabs tabJaffaCakes = new CreativeTabJaffaCakes("tabJaffaCakes");
 
-    @PreInit
+    @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         printMessage("Pre Initialization Event");
 
@@ -105,7 +103,7 @@ public class JaffaCakes {
         ModRecipes.init();
     }
 
-    @Init
+    @EventHandler
     public void init(FMLInitializationEvent event) {
         printMessage("Initialization Event");
 
@@ -116,7 +114,7 @@ public class JaffaCakes {
         GameRegistry.registerWorldGenerator(new OrangeTreeGenerator());
     }
 
-    @PostInit
+    @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         printMessage("Post Initialization Event");
 
