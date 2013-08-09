@@ -51,7 +51,7 @@ public class OrangeTreeOrange extends Block {
         this.icons = new Icon[3];
 
         for (int metadata = 0; metadata < this.icons.length; ++metadata) {
-            this.icons[metadata] = iconRegister.registerIcon(Reference.MODID + ":" + Strings.ORANGE_TREE_ORANGE_NAME + "_" + metadata);
+            this.icons[metadata] = iconRegister.registerIcon(Reference.TEXTURE_FOLDER_NAME + ":" + Strings.ORANGE_TREE_ORANGE_NAME + "_" + metadata);
         }
     }
 

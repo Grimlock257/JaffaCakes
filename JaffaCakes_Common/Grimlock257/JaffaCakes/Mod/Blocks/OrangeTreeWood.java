@@ -39,7 +39,7 @@ public class OrangeTreeWood extends Block {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister) {
-        this.blockIcon = iconRegister.registerIcon(Reference.MODID + ":" + Strings.ORANGE_TREE_WOOD_NAME);
+        this.blockIcon = iconRegister.registerIcon(Reference.TEXTURE_FOLDER_NAME + ":" + Strings.ORANGE_TREE_WOOD_NAME);
     }
 
     /** Determines the damage on the item the block drops. Used in cloth and wood. */

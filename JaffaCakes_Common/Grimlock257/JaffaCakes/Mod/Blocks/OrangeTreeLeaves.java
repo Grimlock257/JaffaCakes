@@ -43,7 +43,7 @@ public class OrangeTreeLeaves extends BlockLeavesBase implements IShearable {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister) {
-        blockIcon = iconRegister.registerIcon(Reference.MODID + ":" + this.getUnlocalizedName2());
+        blockIcon = iconRegister.registerIcon(Reference.TEXTURE_FOLDER_NAME + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
     }
 
     public int idDropped(int par1, Random rand, int par3) {
