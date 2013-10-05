@@ -89,7 +89,12 @@ public class JaffaCakes {
 
         // Register Renders
         JaffaCakes.proxy.registerRenderers();
+    }
 
+    @EventHandler
+    public void init(FMLInitializationEvent event) {
+        printMessage("Initialization Event");
+        
         // Add name's to the Tabs
         LanguageRegistry.instance().addStringLocalization("itemGroup.tabJaffaCakes", "en_US", Strings.TAB_MAIN_NAME);
 
@@ -101,11 +106,6 @@ public class JaffaCakes {
 
         // Create Recipes
         ModRecipes.init();
-    }
-
-    @EventHandler
-    public void init(FMLInitializationEvent event) {
-        printMessage("Initialization Event");
 
         // Dungeon
         ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.itemJaffaCake), 1, 3, 115));
